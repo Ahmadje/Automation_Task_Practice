@@ -8,10 +8,12 @@ public class addProduct {
     SHAFT.TestData.JSON testJson;
     SHAFT.TestData.EXCEL testExcel;
 
-    @Test
+    @Test(description = "Navigate to Products nad Add items with price less than 1000 ")
     public void addProductsToCart() {
         new P01_LoginPage(driver).loginSteps(testExcel.getCellData("userName"), testJson.getTestData("password")).
-                navigateToProducts();
+                navigateToProducts().
+                addProducts().
+                productsVerifications();
     }
 
 
